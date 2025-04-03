@@ -34,6 +34,12 @@ generateSession();
 const refreshInterval = (process.env.YOUTUBE_SESSION_RELOAD_INTERVAL || 300) * 1000;
 setInterval(generateSession, refreshInterval);
 
+// Handle root path
+app.get("/", (req, res) => {
+    res.json({ status: "ok", message: "YouTube session server is running" });
+});
+
+// Handle /token path
 app.get("/token", (req, res) => {
     if (!session) {
         return res.status(503).json({ error: "Session not available" });
