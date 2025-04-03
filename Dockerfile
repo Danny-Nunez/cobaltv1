@@ -5,10 +5,11 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm
 
-# Copy the entire api directory
-COPY api/ ./
+# Copy the entire project
+COPY . .
 
 # Install dependencies
+WORKDIR /app/api
 RUN pnpm install --no-frozen-lockfile
 
 # Set environment variables
