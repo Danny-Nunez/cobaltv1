@@ -9,7 +9,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: YOUTUBE_SESSION_SERVER
-        value: https://cobalt-yt-session.onrender.com/youtube/session
+        value: https://cobalt-yt-session.onrender.com/token
       - key: YOUTUBE_SESSION_INNERTUBE_CLIENT
         value: WEB
       - key: CUSTOM_INNERTUBE_CLIENT
@@ -22,8 +22,6 @@ services:
     env: docker
     dockerfilePath: ./Dockerfile
     envVars:
-      - key: API_URL
-        value: https://cobalt-yt-session.onrender.com/
       - key: NODE_ENV
         value: production
       - key: YOUTUBE_SESSION_INNERTUBE_CLIENT
@@ -33,4 +31,5 @@ services:
       - key: YOUTUBE_SESSION_RELOAD_INTERVAL
         value: "300"
     plan: starter
-    healthCheckPath: /youtube/session 
+    healthCheckPath: /token
+    startCommand: pnpm start:session 

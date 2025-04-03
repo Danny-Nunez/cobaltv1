@@ -11,7 +11,10 @@
     "scripts": {
         "start": "node src/cobalt",
         "test": "node src/util/test",
-        "token:jwt": "node src/util/generate-jwt-secret"
+        "token:jwt": "node src/util/generate-jwt-secret",
+        "start:session": "node src/youtube-session-server.js",
+        "dev": "nodemon src/index.js",
+        "dev:session": "nodemon src/youtube-session-server.js"
     },
     "repository": {
         "type": "git",
@@ -45,5 +48,8 @@
         "freebind": "^0.2.2",
         "rate-limit-redis": "^4.2.0",
         "redis": "^4.7.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.3"
     }
 }
