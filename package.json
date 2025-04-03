@@ -6,6 +6,7 @@
         "node": ">=18.0.0"
     },
     "scripts": {
-        "start": "cd api/src && node cobalt.js"
+        "start": "node src/cobalt.js",
+        "build": "cd api && pnpm install --no-frozen-lockfile"
     }
 }
