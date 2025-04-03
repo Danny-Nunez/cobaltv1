@@ -20,7 +20,7 @@ services:
   - type: web
     name: cobalt-yt-session
     env: docker
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./Dockerfile.session
     envVars:
       - key: NODE_ENV
         value: production
