@@ -19,3 +19,10 @@ docker-compose.yml
 
 # ide
 .vscode
+
+# git
+.git
+.gitignore
+
+# log files
+*.log
