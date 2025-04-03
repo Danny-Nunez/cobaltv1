@@ -31,5 +31,4 @@ services:
       - key: YOUTUBE_SESSION_RELOAD_INTERVAL
         value: "300"
     plan: starter
-    healthCheckPath: /token
-    startCommand: pnpm start:session 
+    healthCheckPath: /token 
