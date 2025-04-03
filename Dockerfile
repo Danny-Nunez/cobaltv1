@@ -2,11 +2,23 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
+# Install pnpm and git
+RUN npm install -g pnpm && \
+    apt-get update && \
+    apt-get install -y git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy the entire project
 COPY . .
+
+# Initialize git repository
+RUN git init && \
+    git config --global init.defaultBranch main && \
+    git config --global user.email "deploy@render.com" && \
+    git config --global user.name "Render Deploy" && \
+    git add . && \
+    git commit -m "Initial commit" || true
 
 # Create version info directory and file with more complete information
 RUN mkdir -p packages/version-info && \
