@@ -2,7 +2,10 @@ services:
   - type: web
     name: cobalt-api
     env: node
-    buildCommand: cd api && pnpm install
+    buildCommand: |
+      cd api
+      npm install -g pnpm
+      pnpm install --no-frozen-lockfile
     startCommand: cd api/src && node cobalt.js
     envVars:
       - key: API_URL
