@@ -1,13 +1,8 @@
 services:
   - type: web
     name: cobalt-api
-    env: node
-    buildCommand: |
-      cd api
-      npm install -g pnpm
-      pnpm install --no-frozen-lockfile
-      cp -r src/* ../src/
-    startCommand: node src/cobalt.js
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: API_URL
         value: https://cobaltv1.onrender.com/
