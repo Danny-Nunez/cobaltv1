@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: cobalt-api
+    env: node
+    buildCommand: cd api && pnpm install
+    startCommand: cd api/src && node cobalt.js
+    envVars:
+      - key: API_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+    plan: starter
+    healthCheckPath: / 

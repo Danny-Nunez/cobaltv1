@@ -1,7 +1,11 @@
 {
-    "name": "cobalt",
-    "packageManager": "pnpm@9.6.0",
+    "name": "cobalt-api-deployment",
+    "version": "1.0.0",
+    "private": true,
     "engines": {
-        "pnpm": ">=9"
+        "node": ">=18.0.0"
+    },
+    "scripts": {
+        "start": "cd api/src && node cobalt.js"
     }
 }
