@@ -1,6 +1,5 @@
 import { Innertube } from "youtubei.js";
 import express from "express";
-import { env } from "./config.js";
 
 const app = express();
 const port = process.env.PORT || 9000;
@@ -11,7 +10,7 @@ let lastUpdate = 0;
 async function generateSession() {
     try {
         const yt = await Innertube.create({
-            client: env.ytSessionInnertubeClient || "WEB",
+            client: process.env.YOUTUBE_SESSION_INNERTUBE_CLIENT || "WEB",
             retrieve_player: true
         });
 
@@ -32,7 +31,7 @@ async function generateSession() {
 generateSession();
 
 // Set up periodic session refresh
-const refreshInterval = (env.ytSessionReloadInterval || 300) * 1000;
+const refreshInterval = (process.env.YOUTUBE_SESSION_RELOAD_INTERVAL || 300) * 1000;
 setInterval(generateSession, refreshInterval);
 
 app.get("/token", (req, res) => {
