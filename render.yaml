@@ -8,5 +8,27 @@ services:
         value: https://cobaltv1.onrender.com/
       - key: NODE_ENV
         value: production
+      - key: YOUTUBE_SESSION_SERVER
+        value: https://cobalt-yt-session.onrender.com/
+      - key: YOUTUBE_SESSION_INNERTUBE_CLIENT
+        value: WEB
+      - key: CUSTOM_INNERTUBE_CLIENT
+        value: '{"clientName":"WEB","clientVersion":"2.20240215.01.00","platform":"DESKTOP"}'
+    plan: starter
+    healthCheckPath: /
+
+  - type: web
+    name: cobalt-yt-session
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: API_URL
+        value: https://cobalt-yt-session.onrender.com/
+      - key: NODE_ENV
+        value: production
+      - key: YOUTUBE_SESSION_INNERTUBE_CLIENT
+        value: WEB
+      - key: CUSTOM_INNERTUBE_CLIENT
+        value: '{"clientName":"WEB","clientVersion":"2.20240215.01.00","platform":"DESKTOP"}'
     plan: starter
     healthCheckPath: / 
